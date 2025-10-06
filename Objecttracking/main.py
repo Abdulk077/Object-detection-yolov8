@@ -3,7 +3,7 @@ from ultralytics import YOLO
 from collections import Counter
 
 # Load YOLO model
-model = YOLO("yolov8n.pt")
+model = YOLO("yolov8n-seg.pt")
 
 # Load video
 cap = cv2.VideoCapture("test.mp4")
@@ -14,7 +14,7 @@ while True:
         break
 
     # Detect objects
-    results = model.track(frame , persist=True,conf=0.3, tracker="bytetrack.yaml")
+    results = model.track(frame , persist=True,conf=0.4, tracker="bytetrack.yaml")
     boxes = results[0].boxes.xyxy.cpu().numpy().astype(int)
     cls = results[0].boxes.cls.cpu().numpy().astype(int)
     conf = results[0].boxes.conf.cpu().numpy()

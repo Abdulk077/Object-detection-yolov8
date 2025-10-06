@@ -5,7 +5,7 @@ from collections import Counter
 # Load YOLOv8 model
 model = YOLO("yolov8n.pt")
 
-cap = cv2.VideoCapture("test.mp4")
+cap = cv2.VideoCapture("cars.mp4")
 
 # Sets to store unique IDs
 seen_ids = set()  
@@ -15,7 +15,7 @@ while True:
     if not ret:
         break
 
-    results = model.track(frame, persist=True, conf=0.5, tracker="bytetrack.yaml")
+    results = model.track(frame, persist=True, conf=0.4, tracker="bytetrack.yaml")
     
     if results[0].boxes is None:
         continue
