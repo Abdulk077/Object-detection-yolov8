@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 # Load pretrained YOLO11n-OBB model
-model = YOLO("yolo11n-obb.pt")
+model = YOLO("yolo11n.pt")
 
 # Run inference on a sample image
 results = model("https://ultralytics.com/images/boats.jpg")
